@@ -29,6 +29,7 @@ Things to DO:
 - implement Guilds
 - add friends into DB
 - better task distribution
+- api key stuff (put in tanks)
 ==============================================================
 
 
