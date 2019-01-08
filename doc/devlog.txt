@@ -20,10 +20,35 @@ ______   ______   __   __   __       ______   _______
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
- -- 2018-11-16 12:25
+kaitlinW, kyleT, joshuaW -- 2019-01-08 12:25
 --------------------------------------------------------------
-- added project description/title
-- added devlog template instead of plain file
-- added flask app.py template
+- danielG has problems today, was MIA. :(
+- received critique
+Things to DO:
+- robustify design doc (description/grammar)
+- implement Guilds
+- add friends into DB
+- better task distribution
+==============================================================
+
+
+all -- 2019-01-07 12:00
+--------------------------------------------------------------
+- design doc initiation
+==============================================================
+
+
+all (emphasis on danielG)-- 2019-01-04 12:00
+--------------------------------------------------------------
+- ideation initiation! 
+- "Hot Dog Typer"
+==============================================================
+
+
+all -- 2019-01-03 12:00
+--------------------------------------------------------------
+- group formed
+- repo Made
+- hold on for greatness!
 ==============================================================
 
