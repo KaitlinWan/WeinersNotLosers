@@ -7,7 +7,12 @@ pd <6>
 
 ---------------------
 <Project Title/Description>
-COMING ALONGGGGG~~~~
+Based on the popular game Cookie Clicker, in this project, we aim to 
+combine the incentives of games with the practical benefits of learning 
+to type (quickly and accurately). This type of game is coined an 
+"incrementer" game, as proclaimed by Orteil. The point of the game is to 
+create hotdogs by clicking on a giant hotdog, then buy more upgrades to 
+increase your hotdog-tivity.
 ---------------------
 
 ______   ______   __   __   __       ______   _______
@@ -19,6 +24,12 @@ ______   ______   __   __   __       ______   _______
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+kaitlinW, joshW, danielG, kyleT -- 2019-01-09 12:30 
+--------------------------------------------------------------
+- 
+==============================================================
 
 
 kaitlinW -- 2019-01-09 7:45
@@ -36,13 +47,13 @@ joshuaW -- 2019-01-08 12:25
 ==============================================================
 
 
-danielG -- 2019-01-08 8:00
+danielG -- 2019-01-08 20:00
 --------------------------------------------------------------
 - robustified design doc (fleshed out parts of project that
   were not fully described)
 ==============================================================
 
-kyleT -- 2019-01-08 4:30
+kyleT -- 2019-01-08 16:30
 --------------------------------------------------------------
 - api keys obtained (there are none)
 - working on guilds (idea was a little messy)
