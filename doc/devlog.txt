@@ -28,7 +28,10 @@ ______   ______   __   __   __       ______   _______
 
 kaitlinW, joshW, danielG, kyleT -- 2019-01-09 12:30 
 --------------------------------------------------------------
-- 
+- kyle: made base html
+- daniel: created animations for hotdog
+- josh: created database
+- kaitlin: started api pdfs
 ==============================================================
 
 
