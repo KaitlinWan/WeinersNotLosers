@@ -27,6 +27,13 @@ def getBacon():
     d = json.loads(r.decode('utf-8'))
     return d
 
+def getAdvice():
+    '''gets advice from Advice Slip API'''
+    response = urlopen('https://api.adviceslip.com/advice')
+    r = response.read()
+    d = json.loads(r.decode('utf-8'))
+    return d['slip']['advice']
+
 @app.route('/')
 def home():
     return hi
