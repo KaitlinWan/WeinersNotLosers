@@ -40,7 +40,7 @@ def wordList(x):
 @app.route('/')
 @app.route('/index')
 def home():
-    return 0
+    return render_template()
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
