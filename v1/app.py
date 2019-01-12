@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from urllib.request import urlopen
 
 from utils import authenticate
-import funcDB
+'''import funcDB'''
 
 app = Flask(__name__)
 app.secret_key = "wereallweinerssometimes"
@@ -38,17 +38,20 @@ def wordList(x):
     return x.split()
 
 @app.route('/')
+def go():
+    return redirect(url_for("home"))
+
 @app.route('/index')
 def home():
-    return render_template()
+    return render_template("index.html")
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    return 0
+    return render_template("register.html")
 
 @app.route('/login' , methods=["GET", "POST"])
 def login():
-    return 0
+    return render_template("login.html")
 
 @app.route('/logout', methods=["GET", "POST"])
 def logout():

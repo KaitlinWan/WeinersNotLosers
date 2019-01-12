@@ -3,7 +3,6 @@
   <head>
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <style type="text/css">
       body {
             background: radial-gradient(circle, #ebdd85, #5ec4a6);
@@ -11,20 +10,23 @@
             height:100%;
       }
     </style>
-    <title> {% block title %}{% endblock %}</title>
+    <title> {% block title %} {% endblock %} | HotDogClicker </title>
   </head>
   <body>
+    <center>
     {% block header %}
     {% endblock %}
-    <br>
+    </center>
     <!-- this is for stuff before the giant hotdog in the middle -->
     <center>
-      <img src="http://www.clipartsuggest.com/images/375/14-cartoon-pictures-of-hot-dogs-free-cliparts-that-you-can-download-to-JeNyf6-clipart.png" height="400" width="400">
+      <img src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" height="400" width="400">
     </center>
     <br>
     {% block content %}
     {% endblock %}
-    <footer>
+    <br>
+    <br>
+    <footer style="text-align:center;">
       &copy;<img src="https://www.clipartmax.com/png/small/90-903435_animasi-sosis-png.png" height="40" width="20"> WeinersNotLosers 2019
     </footer>
   </body>

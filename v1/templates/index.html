@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="typing.js" defer></script>
+</head>
+
+<body onload="addWords()">
+  <p hidden id="text">{{text}}</p> <!--you can access this using "var text = document.getElementById("text")""-->
+  <div> <!--Outer div-->
+
+    <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
+
+    <div id="word-section" class="container">
+      <div class="waiting">⌛</div>
+    </div>
+
+    <div id="type-section" class="container">
+      <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)">
+      <div id="timer" class="type-btn"><span>1:00</span></div>
+      <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
+        <span id="restart-symbol">↻</span>
+      </button>
+    </div>
+
+  </div> <!--Outer div-->
+
+
+</body>
+
+<script>
+$.fn.extend({
+  animateCss: function(animationName, callback) {
+    var animationEnd = (function(el) {
+      var animations = {
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+      };
+
+      for (var t in animations) {
+        if (el.style[t] !== undefined) {
+          //The ended animation
+          return animations[t];
+        }
+      }
+    })(document.createElement('div'));
+    //Add the animated class to the element
+    //Once the animation has ended, remove the class.
+    this.addClass('animated ' + animationName).one(animationEnd, function() {
+      //console.log(this.className);
+      $(this).removeClass('animated ' + animationName);
+      if (typeof callback === 'function') callback();
+    });
+
+    return this;
+  },
+});
+
+let current = $(".current-word");
+console.log(current);
+
+/*if(checkWord($(".current-word")[0])){
+  console.log("Currect word");
+  $('#hotdog').animateCss('rubberBand');
+}*/
+
+
+</script>
+
+</html>
