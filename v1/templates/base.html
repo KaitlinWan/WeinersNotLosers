@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
+    <meta charset="utf-8">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% block head %}
+    {% endblock %}
     <style type="text/css">
       body {
             background: radial-gradient(circle, #ebdd85, #5ec4a6);
@@ -12,18 +16,23 @@
     </style>
     <title> {% block title %} {% endblock %} | HotDogClicker </title>
   </head>
-  <body>
+
+  <body onload="addWords()">
     <center>
-    {% block header %}
+
+    {% block page_header %}
     {% endblock %}
+
     </center>
     <!-- this is for stuff before the giant hotdog in the middle -->
-    <center>
-      <img src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" height="400" width="400">
-    </center>
-    <br>
+    <div> <!--Outer div-->
+
+      <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
+
+
     {% block content %}
     {% endblock %}
+    </div>
     <br>
     <br>
     <footer style="text-align:center;">
