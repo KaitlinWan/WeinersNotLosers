@@ -7,7 +7,7 @@ import time
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from urllib.request import urlopen
 
-from utils import authenticate
+from util import authenticate
 '''import funcDB'''
 
 app = Flask(__name__)
@@ -18,6 +18,7 @@ def getQuote():
     response = urlopen('https://favqs.com/api/qotd')
     r = response.read()
     d = json.loads(r.decode('utf-8'))
+    #print(d['quote']['body'])
     return d['quote']['body']
 
 def getBacon():
@@ -25,20 +26,26 @@ def getBacon():
     response = urlopen('https://baconipsum.com/api/?type=meat-and-filler&paras=1')
     r = response.read()
     d = json.loads(r.decode('utf-8'))
-    return d
+    #print(d[0])
+    return d[0]
 
 def getAdvice():
     '''gets advice from Advice Slip API'''
     response = urlopen('https://api.adviceslip.com/advice')
     r = response.read()
     d = json.loads(r.decode('utf-8'))
+    #print(d['slip']['advice'])
     return d['slip']['advice']
 
 def wordList(x):
+    #returns list of words from the quote , e.g. wordList(getBacon())
     return x.split()
 
 @app.route('/')
 def go():
+    #print(wordList(getBacon()))
+    #print(wordList(getQuote()))
+    #print(wordList(getAdvice()))
     return redirect(url_for("home"))
 
 @app.route('/index')
