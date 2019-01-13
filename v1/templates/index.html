@@ -18,7 +18,6 @@ HotDogs:
 
 {% block content %}
   <p hidden id="text">{{text}}</p> <!--you can access this using "var text = document.getElementById("text")""-->
-  <div> <!--Outer div-->
 
     <div id="word-section" class="container">
       <div class="waiting">⌛</div>
@@ -32,6 +31,15 @@ HotDogs:
       </button>
     </div>
 
-  </div> <!--Outer div-->
 
+{% endblock %}
+
+{% block inventory %}
+<!--Inventory-->
+
+  <div id ="inventory" class ="container">
+    <h4>Inventory</h4>
+  </div>
+
+<!-- End inventory -->
 {% endblock %}
