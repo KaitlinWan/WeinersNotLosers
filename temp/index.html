@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="typing.js" defer></script>
-  <title>Test</title>
+  <script src="typing.js"></script>
 </head>
 
 <body onload="addWords()">
@@ -18,7 +17,7 @@
     <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
 
     <div id="word-section" class="container">
-      <div class="waiting">⌛</div>
+      <div class="waiting">🌭</div>
     </div>
 
     <div id="type-section" class="container">
@@ -31,7 +30,13 @@
 
   </div> <!--Outer div-->
 
+  <!--Invetory-->
 
+  <div id ="inventory" class ="container">
+  <h4>Inventory</h4>
+  </div>
+
+  <!-- End inventory -->
 </body>
 
 <script>
@@ -71,6 +76,8 @@ console.log(current);
   console.log("Currect word");
   $('#hotdog').animateCss('rubberBand');
 }*/
+
+/*$('#inventory').html("<p>Number of hotdogs: </p>");*/
 
 
 </script>

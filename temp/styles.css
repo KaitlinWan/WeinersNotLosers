@@ -1,10 +1,3 @@
-/************************************************/
-/* Color Pallet */
-/* Base Colors */
-/* Main Primary color */
-/* Word Colors */
-/************************************************/
-/* Mixins / Placeholders */
 #timer, #restart {
   margin: 0.2em;
   line-height: 2.2em;
@@ -64,6 +57,9 @@ header {
   box-shadow: -1px -1px 5px #383838; }
   #typebox:focus {
     outline: none; }
+
+#inventory {
+  background-color: salmon;}
 
 #timer {
   width: 4em;
