@@ -188,7 +188,7 @@ let wordList = [
     let target = $("#inventory")[0];
     target.innerHTML = "<h4>Inventory</h4>";
     console.log(inventory.hotdogs);
-    target.innerHTML += `<p> Number of hotdogs: ${inventory.hotdogs}</p>`;
+    target.innerHTML += `<p> Number of hotdogs: ${Math.floor(inventory.hotdogs)}</p>`;
     target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
     target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
   }
@@ -276,10 +276,10 @@ let wordList = [
         } else {
           time -= 1;
           //For every second, a shop will produce 1 hotdog
-          inventory.hotdogs += inventory.shops;
-          display();
           let timePad = (time < 10) ? ("0" + time) : time; // zero padded
           $("#timer > span")[0].innerHTML = `0:${timePad}`;
+          inventory.hotdogs += (inventory.shops)/5;
+          display();
         }
       }, 1000);
     } else if (one == "0:00") {return false;}
@@ -317,6 +317,7 @@ let wordList = [
   }
 
   var typingTest = function(e) {
+    console.log("in tyoing test");
     // Char:        Key Code:
     // <space>      32
     // <backspace>  8
