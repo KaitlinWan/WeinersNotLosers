@@ -144,7 +144,8 @@ let wordList = [
   let inventory = {
     hotdogs: 0,
     multiplier: 1,
-    shops: 0
+    shops: 0,
+    grandmas: 0
   };
 
   //Updates the number of hot dogs in inventory
@@ -182,6 +183,17 @@ let wordList = [
   }
 };
 
+var getNumGrandmas = function(cost){
+
+  if(inventory.hotdogs >= cost){
+  inventory.grandmas += 1;
+  inventory.hotdogs -= cost;
+  console.log("Added a grandma");
+  //Display is called since user should see shop
+  //in the inventory right after clicking btn
+  display();
+}
+};
 
   //Displays the inventory on the main page
   var display = function(){
@@ -191,6 +203,7 @@ let wordList = [
     target.innerHTML += `<p> Number of hotdogs: ${Math.floor(inventory.hotdogs)}</p>`;
     target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
     target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
+    target.innerHTML += `<p> Grandmas: ${inventory.grandmas} </p>`;
   }
   /******************************************
   After hitting <space> if value == current-word, mark as correct-word
@@ -275,11 +288,13 @@ let wordList = [
           clearInterval(typingTimer);
         } else {
           time -= 1;
+          //Add hotdogs based on items per shop on a per second basis
+          inventory.hotdogs += (inventory.shops/7);
+          inventory.hotdogs += 3*(inventory.grandmas/7);
+          display();
           //For every second, a shop will produce 1 hotdog
           let timePad = (time < 10) ? ("0" + time) : time; // zero padded
           $("#timer > span")[0].innerHTML = `0:${timePad}`;
-          inventory.hotdogs += (inventory.shops)/5;
-          display();
         }
       }, 1000);
     } else if (one == "0:00") {return false;}
