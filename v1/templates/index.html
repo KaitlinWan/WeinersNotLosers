@@ -15,6 +15,11 @@
 
 {% block page_header %}
 HotDogs:
+<form action="/index", methods=["POST"]>
+  <input type="submit" value="Quotes" name="q">
+  <input type="submit" value="Meat Lorem Ipsum" name="m">
+  <input type="submit" value="Advice" name="a">
+</form>
 {% endblock %}
 
 {% block content %}

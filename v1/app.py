@@ -48,9 +48,14 @@ def go():
     #print(wordList(getAdvice()))
     return redirect(url_for("home"))
 
-@app.route('/index')
+@app.route('/index', methods=["GET", "POST"])
 def home():
-    return render_template("index.html")
+    if request.form.get('a') == "Advice":
+        text = wordList(getAdvice())
+        print(yes)
+        return render_template("index.html",text=text)
+    else:
+        return render_template("index.html")
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
