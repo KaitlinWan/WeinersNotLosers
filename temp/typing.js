@@ -174,6 +174,13 @@ let wordList = [
     //target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
   };
 
+  var getNumShops = function(){
+    if(inventory.hotdogs >= 50){
+    inventory.shops += 1;
+    inventory.hotdogs -= 50;
+    console.log("Added a shop");
+  }
+};
   var display = function(){
     let target = $('#inventory')[0];
     target.innerHTML = "<h4>Inventory</h4>";

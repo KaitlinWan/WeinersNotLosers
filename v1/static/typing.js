@@ -130,13 +130,6 @@ let wordList = [
 
   }
 
-  //////////////////////////////////////////
-
-  // Word Colors
-  let colorCurrentWord ="#dddddd"; // Grey
-  let colorCorrectWord = "#9ad673"; // Green
-  let colorIncorrectWord = "#d10c2d"; // Red
-
   // Data pertaining to the words such as # correct
   let wordData = {
     seconds: 60,
@@ -147,24 +140,28 @@ let wordList = [
     typed: 0
   };
 
+  //Inventory of the user
   let inventory = {
     hotdogs: 0,
-    multiplier: 1
+    multiplier: 1,
+    shops: 0
   };
 
+  //Updates the number of hot dogs in inventory
   var getNumDogs = function(){
-    let target = $('#inventory')[0];
+
     if(wordData.correct == 0){
       inventory.hotdogs = 0
     }
     else{
-      inventory.hotdogs += (inventory.multiplier) ;
+      inventory.hotdogs += (inventory.multiplier);
     }
     //target.innerHTML = `<p> Number of hotdogs: ${inventory.hotdogs}</p>`;
   };
 
+  //Updates the multiplier in inventory
   var getMultiplier = function(){
-    let target = $('#inventory')[0];
+
     if(wordData.streak == 0){
       inventory.multiplier = 1;
     }
@@ -174,20 +171,33 @@ let wordList = [
     //target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
   };
 
+  var getNumShops = function(cost){
+    if(inventory.hotdogs >= cost){
+    inventory.shops += 1;
+    inventory.hotdogs -= cost;
+    console.log("Added a shop");
+    //Display is called since user should see shop
+    //in the inventory right after clicking btn
+    display();
+  }
+};
+
+
+  //Displays the inventory on the main page
   var display = function(){
-    let target = $('#inventory')[0];
+    let target = $("#inventory")[0];
     target.innerHTML = "<h4>Inventory</h4>";
+    console.log(inventory.hotdogs);
     target.innerHTML += `<p> Number of hotdogs: ${inventory.hotdogs}</p>`;
     target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
+    target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
   }
-  //////////////////////////////////////////
-  // Initial implementation notes:
-  // next word on <space>, if empty, then set value=""
-  // after <space> if value == current-word, mark as correct-word
-  // else, mark as incorrect-word
-  // if value.length != current-word[:value.length], mark as incorrect-word
-  // else, mark as current-word
-  //////////////////////////////////////////
+  /******************************************
+  After hitting <space> if value == current-word, mark as correct-word
+  else, mark as incorrect-word
+  if value.length != current-word[:value.length] (typing the word wrong), mark as incorrect-word
+  else, mark as current-word
+  *******************************************/
 
   var checkWord = function(word) {
     let wlen = word.value.length;
@@ -216,6 +226,7 @@ let wordList = [
       wordData.correct += 1;
       wordData.streak += 1;
       getNumDogs();
+      console.log(inventory.hotdogs)
       //getMultiplier();
     } else {
       current.classList.remove("current-word", "incorrect-word-bg");
@@ -264,6 +275,9 @@ let wordList = [
           clearInterval(typingTimer);
         } else {
           time -= 1;
+          //For every second, a shop will produce 1 hotdog
+          inventory.hotdogs += inventory.shops;
+          display();
           let timePad = (time < 10) ? ("0" + time) : time; // zero padded
           $("#timer > span")[0].innerHTML = `0:${timePad}`;
         }
@@ -336,7 +350,7 @@ let wordList = [
     }
   }
 
-  function restartTest() {
+  var restartTest = function() {
     $("#typebox")[0].value = "";
     location.reload();
   }

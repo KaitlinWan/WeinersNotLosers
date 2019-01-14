@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="{{ url_for('static', filename='typing.js') }}"></script>
+
 {% endblock %}
 
 {% block title %}
@@ -20,7 +21,7 @@ HotDogs:
   <p hidden id="text">{{text}}</p> <!--you can access this using "var text = document.getElementById("text")""-->
 
     <div id="word-section" class="container">
-      <div class="waiting">⌛</div>
+      <div class="waiting">🌭</div>
     </div>
 
     <div id="type-section" class="container">
@@ -37,9 +38,17 @@ HotDogs:
 {% block inventory %}
 <!--Inventory-->
 
-  <div id ="inventory" class ="container">
-    <h4>Inventory</h4>
-  </div>
+<div class="container">
+  <div class="row">
+    <div id="inventory" class="col-sm">
+      <h4>Inventory</h4>
+    </div>
+    <div id="shop" class="col-sm">
+      <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
+      <button id="nathans" onclick="getNumShops(5)"> Buy Shop </button>
+    </div>
 
+  </div>
+</div>
 <!-- End inventory -->
 {% endblock %}

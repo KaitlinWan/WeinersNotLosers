@@ -1,3 +1,6 @@
+/* em- Relative to the font-size of the element
+(2em means 2 times the size of the current font)*/
+
 #timer, #restart {
   margin: 0.2em;
   line-height: 2.2em;
@@ -59,7 +62,12 @@ header {
     outline: none; }
 
 #inventory {
-  background-color: salmon;}
+  border-style: solid;
+  margin: 15px; }
+
+#shop {
+   border-style: solid;
+   margin: 15px; }
 
 #timer {
   width: 4em;

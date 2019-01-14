@@ -32,11 +32,20 @@
 
   <!--Invetory-->
 
-  <div id ="inventory" class ="container">
-  <h4>Inventory</h4>
-  </div>
+  <div class="container">
+    <div class="row">
+      <div id="inventory" class="col-sm">
+        <h4>Inventory</h4>
+      </div>
+      <div id="shop" class="col-sm">
+        <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
+        <button id="nathans" onclick="getNumShops()"> Buy Shop </button>
+      </div>
 
+    </div>
+  </div>
   <!-- End inventory -->
+
 </body>
 
 <script>
@@ -73,8 +82,8 @@ let current = $(".current-word");
 console.log(current);
 
 /*if(checkWord($(".current-word")[0])){
-  console.log("Currect word");
-  $('#hotdog').animateCss('rubberBand');
+console.log("Currect word");
+$('#hotdog').animateCss('rubberBand');
 }*/
 
 /*$('#inventory').html("<p>Number of hotdogs: </p>");*/
