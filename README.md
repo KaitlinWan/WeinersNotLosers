@@ -1,5 +1,6 @@
 # HotDog Typer
 Team WeinersNotLosers
+
 Kaitlin Wan, Daniel Gelfand, Kyle Tau, Joshua Weiner
 
 ## Overview
