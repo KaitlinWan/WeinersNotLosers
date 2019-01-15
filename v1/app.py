@@ -58,13 +58,13 @@ def home():
         is_loggedin = False
 
     if request.args.get('q') == 'Quotes':
-        text = wordList(getQuote())
+        text = getQuote()
         return render_template('index.html', text=text)
     if request.args.get('m') == 'Meat Lorem Ipsum':
-        text = wordList(getBacon())
+        text = getBacon()
         return render_template('index.html', text=text)
     if request.args.get('a') == 'Advice':
-        text = wordList(getAdvice())
+        text = getAdvice()
         return render_template('index.html', text=text)
     return render_template("index.html", loggedin=is_loggedin, username=username)
 

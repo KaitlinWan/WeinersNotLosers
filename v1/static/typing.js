@@ -27,7 +27,7 @@ $.fn.extend({
   },
 });
 
-var wordList = document.getElementById("words");
+var wordList = $("#words")[0];
 console.log(wordList.innerHTML);
 // Sorted list of the 500 most common English words.
 let words = [

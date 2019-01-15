@@ -28,7 +28,7 @@ HotDogs:
 
 {% block content %}
 
-    <p hidden id="words">{{text}}</p>
+    <p hidden id="words">{{text|tojson}}</p>
 
     <div id="word-section" class="container">
       <div class="waiting">🌭</div>
