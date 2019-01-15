@@ -48,14 +48,18 @@ def go():
     #print(wordList(getAdvice()))
     return redirect(url_for("home"))
 
-@app.route('/index', methods=["GET", "POST"])
+@app.route('/index', methods=["GET"])
 def home():
-    if request.form.get('a') == "Advice":
+    if request.args.get('q') == 'Quotes':
+        text = wordList(getQuote())
+        return render_template('index.html', text=text)
+    if request.args.get('m') == 'Meat Lorem Ipsum':
+        text = wordList(getBacon())
+        return render_template('index.html', text=text)
+    if request.args.get('a') == 'Advice':
         text = wordList(getAdvice())
-        print(yes)
-        return render_template("index.html",text=text)
-    else:
-        return render_template("index.html")
+        return render_template('index.html', text=text)
+    return render_template("index.html")
 
 @app.route('/register', methods=["GET", "POST"])
 def register():

@@ -27,8 +27,10 @@ $.fn.extend({
   },
 });
 
+var wordList = document.getElementById("words");
+console.log(wordList.innerHTML);
 // Sorted list of the 500 most common English words.
-let wordList = [
+let words = [
   "the", "name", "of", "very", "to", "through", "and", "just", "a",
   "form", "in", "much", "is", "great", "it", "think", "you", "say",
   "that", "help", "he", "low", "was", "line", "for", "before", "on",
@@ -120,8 +122,8 @@ let wordList = [
     wordSection.innerHTML = "";
     $("#typebox")[0].value = "";
 
-    for (let i = 350; i > 0; i--) {
-      let words = shuffle(wordList);
+    for (let i = wordList.length; i > 0; i--) {
+      let words = wordList;
       let wordSpan = `<span>${words[i]}</span>`;
       wordSection.innerHTML += wordSpan;
     }

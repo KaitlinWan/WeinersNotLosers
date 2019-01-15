@@ -18,7 +18,7 @@
 <h2 id="numTop">Number of HotDogs:</h2>
 
 HotDogs:
-<form action="/index", methods=["POST"]>
+<form action="/index", methods=["GET"]>
   <input type="submit" value="Quotes" name="q">
   <input type="submit" value="Meat Lorem Ipsum" name="m">
   <input type="submit" value="Advice" name="a">
@@ -27,7 +27,8 @@ HotDogs:
 {% endblock %}
 
 {% block content %}
-  <p hidden id="text">{{text}}</p> <!--you can access this using "var text = document.getElementById("text")""-->
+
+    <p hidden id="words">{{text}}</p>
 
     <div id="word-section" class="container">
       <div class="waiting">🌭</div>
