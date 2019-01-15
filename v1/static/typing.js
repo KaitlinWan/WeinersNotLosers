@@ -204,6 +204,8 @@ var getNumGrandmas = function(cost){
     target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
     target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
     target.innerHTML += `<p> Grandmas: ${inventory.grandmas} </p>`;
+    let head = $("#numTop")[0];
+    head.innerHTML = `<p> Number of hotdogs: ${Math.floor(inventory.hotdogs)}</p>`;
   }
   /******************************************
   After hitting <space> if value == current-word, mark as correct-word
