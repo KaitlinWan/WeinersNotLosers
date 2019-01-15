@@ -50,6 +50,13 @@ def go():
 
 @app.route('/index', methods=["GET"])
 def home():
+    if authenticate.is_loggedin(session):
+        is_loggedin = True
+        username = session['loggedin']
+    else:
+        username = ""
+        is_loggedin = False
+
     if request.args.get('q') == 'Quotes':
         text = getQuote()
         return render_template('index.html', text=text)
@@ -59,19 +66,50 @@ def home():
     if request.args.get('a') == 'Advice':
         text = getAdvice()
         return render_template('index.html', text=text)
-    return render_template("index.html")
+    return render_template("index.html", loggedin=is_loggedin, username=username)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    if request.method == "GET":
+        return render_template("register.html")
+    else:
+        success, message = authenticate.register_user(
+                request.form['username'],
+                request.form['password'],
+                request.form['passwordConfirmation'])
+        if success:
+            flash(message, "success")
+            return redirect(url_for('login'))
+        else:
+            flash(message, "danger")
+            return redirect(url_for('register'))
     return render_template("register.html")
 
 @app.route('/login' , methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        success, message = authenticate.login_user(
+            request.form['username'],
+            request.form['password']
+        )
+        if success:
+            flash(message, "success")
+            session['loggedin']=request.form['username']
+            return redirect(url_for('home'))
+        else:
+            flash(message, "danger")
+            return redirect(url_for('login'))
 
 @app.route('/logout', methods=["GET", "POST"])
 def logout():
-    return 0
+    if authenticate.is_loggedin(session):
+        session.pop('loggedin')
+        flash("Successfully logged out.", "success")
+    else:
+        flash("You are not logged in!", "danger")
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.debug = True
