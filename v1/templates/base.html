@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     {% block head %}
@@ -18,7 +17,55 @@
   </head>
 
   <body onload="addWords()">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {% if loggedin %}
+  <a class="navbar-brand" href="#">{{username}}</a>
+    {% else %}
+    <a class="navbar-brand" href="#">Navbar</a>
+    {% endif %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/index">Play Game</a>
+        </li>
+      {% if not loggedin %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        {% endif %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     <center>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+     {% for message in messages %}
+     <div class="visible" style="width: 80%; position: fixed; margin-top: 1%; z-index: 1030; opacity:0.95;">
+       <div class="alert alert-{{message[0]}} alert-dismissible fade show" role="alert">{{ message[1] }}
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+   </div>
+   {% endfor %}
+   {% endif %}
+   {% endwith %}
 
     {% block page_header %}
     {% endblock %}
@@ -42,4 +89,7 @@
       &copy;<img src="https://www.clipartmax.com/png/small/90-903435_animasi-sosis-png.png" height="40" width="20"> WeinersNotLosers 2019
     </footer>
   </body>
+
+  <script>
+  $
 </html>
