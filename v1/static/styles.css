@@ -79,12 +79,16 @@ header {
   background-color: #68A143; }
   #restart > span {
     display: inline-block;
-    transform: rotate(1.5Rad);
+    transform: rotate(1.57Rad); /*90 degrees*/
     font-weight: bold; }
   #restart:hover {
     background-color: #467F21; }
   #restart:active {
-    box-shadow: 1px 1px 4px #467F21 inset; }
+    box-shadow: 1px 1px 4px #467F21 inset;}
+
+
+
+
 
 #results {
   text-align: center;

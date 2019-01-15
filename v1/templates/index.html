@@ -19,16 +19,16 @@
 
 HotDogs:
 <form action="/index", methods=["GET"]>
-  <input type="submit" value="Quotes" name="q">
-  <input type="submit" value="Meat Lorem Ipsum" name="m">
-  <input type="submit" value="Advice" name="a">
+  <input type="button" value="Quotes" name="q" onclick="getWords()">
+  <input type="button" value="Meat Lorem Ipsum" name="m" onclick="getWords()">
+  <input type="button" value="Advice" name="a" onclick="getWords()">
 </form>
 
 {% endblock %}
 
 {% block content %}
 
-    <p hidden id="words">{{text|tojson}}</p>
+    <p hidden id="words">{{text}}</p>
 
     <div id="word-section" class="container">
       <div class="waiting">🌭</div>
