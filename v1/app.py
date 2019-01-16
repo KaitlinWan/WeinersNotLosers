@@ -37,9 +37,11 @@ def getAdvice():
     #print(d['slip']['advice'])
     return d['slip']['advice']
 
-def wordList(x):
-    #returns list of words from the quote , e.g. wordList(getBacon())
-    return x.split()
+def duplicate(x):
+    text = ""
+    while (len(text) < 500):
+        text += x
+    return text
 
 @app.route('/')
 def go():
@@ -56,16 +58,15 @@ def home():
     else:
         username = ""
         is_loggedin = False
-
     if request.args.get('q') == 'Quotes':
-        text = getQuote()
-        return render_template('index.html', text=text)
+        text = duplicate(getQuote())
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
     if request.args.get('m') == 'Meat Lorem Ipsum':
-        text = getBacon()
-        return render_template('index.html', text=text)
+        text = duplicate(getBacon())
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
     if request.args.get('a') == 'Advice':
-        text = getAdvice()
-        return render_template('index.html', text=text)
+        text = duplicate(getAdvice())
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
     return render_template("index.html", loggedin=is_loggedin, username=username)
 
 @app.route('/register', methods=["GET", "POST"])
