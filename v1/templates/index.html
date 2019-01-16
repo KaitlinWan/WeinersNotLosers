@@ -54,10 +54,11 @@ HotDogs:
       <h4>Inventory</h4>
     </div>
     <div id="shop" class="col-sm">
+      <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
       <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
-      <button id="nathans" onclick="getNumShops(10)"> Buy Shop </button>
+      <button id="nathans" onclick="getNumShops(10);toggle()"> Buy Shop </button>
       <h4>Grandma Olga: 3 hot dog every second</h4>
-      <button id="grandma" onclick="getNumGrandmas(20)"> Buy Grandma </button>
+      <button id="grandma" onclick="getNumGrandmas(20);toggle()"> Buy Grandma </button>
     </div>
 
   </div>

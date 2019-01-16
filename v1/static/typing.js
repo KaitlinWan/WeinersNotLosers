@@ -57,6 +57,18 @@ var getWords = function(){
 
   }
 
+  //Toggles the hidden paragraph that says you don't have enough hotdogs to buy item
+  var allowed = false;
+  function toggle() {
+  //alert("toggle");
+  if (document.getElementById("allowed").style.visibility === "visible" && allowed==true) {
+    document.getElementById("allowed").style.visibility = "hidden"
+  } else {
+    document.getElementById("allowed").style.visibility = "visible"
+  }
+  allowed = false;
+}
+
   // Data pertaining to the words such as # correct
   let wordData = {
     seconds: 60,
@@ -103,6 +115,7 @@ var getWords = function(){
     if(inventory.hotdogs >= cost){
     inventory.shops += 1;
     inventory.hotdogs -= cost;
+    allowed = true;
     console.log("Added a shop");
     //Display is called since user should see shop
     //in the inventory right after clicking btn
@@ -115,6 +128,7 @@ var getNumGrandmas = function(cost){
   if(inventory.hotdogs >= cost){
   inventory.grandmas += 1;
   inventory.hotdogs -= cost;
+  allowed = true;
   console.log("Added a grandma");
   //Display is called since user should see shop
   //in the inventory right after clicking btn
