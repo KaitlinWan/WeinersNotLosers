@@ -40,7 +40,7 @@ def getAdvice():
 def duplicate(x):
     text = ""
     while (len(text) < 500):
-        text += x
+        text += x + " " 
     return text
 
 @app.route('/')
