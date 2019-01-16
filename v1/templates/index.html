@@ -19,9 +19,9 @@
 
 HotDogs:
 <form action="/index", methods=["GET"]>
-  <input type="button" value="Quotes" name="q" onclick="getWords()">
-  <input type="button" value="Meat Lorem Ipsum" name="m" onclick="getWords()">
-  <input type="button" value="Advice" name="a" onclick="getWords()">
+  <input type="submit" value="Quotes" name="q">
+  <input type="submit" value="Meat Lorem Ipsum" name="m">
+  <input type="submit" value="Advice" name="a">
 </form>
 
 {% endblock %}
@@ -29,7 +29,7 @@ HotDogs:
 {% block content %}
 
     <p hidden id="words">{{text}}</p>
-
+    <script>getWords();</script>
     <div id="word-section" class="container">
       <div class="waiting">🌭</div>
     </div>
