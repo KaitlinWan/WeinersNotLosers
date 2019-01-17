@@ -21,9 +21,6 @@ Play
         <h4>Inventory</h4>
       </div>
       <br>
-      <div id = 'leaderboard'>
-        <h4> Leaderboard</h4>
-        </div>
     </div>
     <div class='col-6'>
           <h2 id="numTop">HotDogs</h2>
@@ -39,6 +36,22 @@ Play
           <button id="grandma" onclick="getNumGrandmas(50);"> Buy Grandma (50)</button>
         </div>
       </div>
+    </div>
+    <div class = 'row'>
+    <div class = 'col'>
+  <form action="/index" method="GET">
+
+              <input type="submit" class = 'btn btn-success' value="Quotes" name="q">
+
+              <input type="submit"class = 'btn btn-success' value="Meat Lorem Ipsum" name="m">
+
+              <input type="submit" class = 'btn btn-success' value="Advice" name="a">   </form>
+
+    <br>
+
+
+    </div>
+
     </div>
     <div class = 'row'>
       <p hidden id="words">{{text}}</p>
@@ -59,20 +72,6 @@ Play
       </div>
       <br>
       <div class = 'row'>
-        <div class = 'col'>
-          <p> Pick your text:    </p>
-      <form action="/index" method="GET">
-
-                  <input type="submit" class = 'btn btn-success' value="Quotes" name="q">
-
-                  <input type="submit"class = 'btn btn-success' value="Meat Lorem Ipsum" name="m">
-
-                  <input type="submit" class = 'btn btn-success' value="Advice" name="a">   </form>
-
-
-
-
-        </div>
 
           </div>
   </div>
