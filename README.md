@@ -8,9 +8,20 @@ Based on the popular game Cookie Clicker, in this project, we aim to combine the
 
 ## Instructions
 
-1. Clone this repository.
-2. Install the correct packages. Run "pip install requirements.txt"
-3. Activate your virtual enviornment
-4. Run "python app.py" to initialize the flask server
-5. In your preferred brower, go to your local host address (http://127.0.0.1:5000).
+1. Clone the repo
+    * ssh - `git@github.com:KaitlinWan/WeinersNotLosers.git`
+    * https - `https://github.com/KaitlinWan/WeinersNotLosers.git`
+2. `$ cd WeinersNotLosers`
+   * Move to root of repo
+3. `pip install -r requirements.txt`
+    * Install the requirements for Hot Dog Typer   
+4.  `$ . location_of_venv/venv_name/bin/activate`
+    * Activate your virtual environment
+5. `$ python db_builder.py`
+    * Initialize your database, if you have not already. This is necessary to store user accounts and inventory.
+6. `$ python app.py`
+    * Start Hot Dog typer
+7. Open up your browser and type [127.0.0.1:5000](http://127.0.0.1:5000/)
+    * Load Hot Dog Typer in browser and enjoy
+8. Select one of the three butons for choice of words and start typing!
 
