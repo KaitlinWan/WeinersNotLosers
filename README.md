@@ -25,3 +25,8 @@ Based on the popular game Cookie Clicker, in this project, we aim to combine the
     * Load Hot Dog Typer in browser and enjoy
 8. Select one of the three butons for choice of words and start typing!
 
+## APIs
+
+1. Bacon Lorem Ipsum: Text filler (meatified)
+2. FavQs: Generates a Quote of the Day
+3. Advice Slip: Generates a meaningful piece of advice
