@@ -5,13 +5,15 @@ Register
 {% endblock %}
 
 {% block page_header %}
- <h2>Register to play!</h2>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<br>
+ <p id = 'regii'>Hot Dog Typer</p>
 {% endblock %}
 
 {% block content %}
 <div class="signup-form container">
 	<form action="/register" method="POST">
-    <h3 class ="text-center">CREATE AN ACCOUNT!</h3>
+    <p class ="text-center" id = 'regii'>create an account!</p>
 		<h4>Username:</h4> <input class = "form-control" type = "text" name = "username" required><br>
 		<h4>Password:</h4> <input class = "form-control" type = "password" name = "password" required><br>
 		<h4>Re-Enter Password:</h4> <input class = "form-control" type = "password" name = "passwordConfirmation" required> <br>
