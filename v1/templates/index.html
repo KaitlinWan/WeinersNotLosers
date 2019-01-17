@@ -15,86 +15,80 @@ Play
 
 {% block page_header %}
 <div class='container'>
-    <div class='row'>
-            <div class='col'>
-              <div id="inventory" class="col-sm">
-                <h4>Inventory</h4>
-              </div>
+  <div class='row'>
+    <div class='col'>
+      <div id="inventory">
+        <h4>Inventory</h4>
       </div>
-      <div class='col-6'>
-            <h2 id="numTop">HotDogs</h2>
-            <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="300px" width="300px">
-
+      <br>
+      <div id = 'leaderboard'>
+        <h4> Leaderboard</h4>
         </div>
-        <div class='col'>
-          <div id="shop" class="col-sm">
-            <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
-            <h4>Nathan's Shops: </br>1 Hot Dog/s</h4>
-            <button id="nathans" onclick="getNumShops(30);"> Buy Shop (30)  </button>
-            <h4>Grandma Olga:</br> 3 Hot Dog/s</h4>
-            <button id="grandma" onclick="getNumGrandmas(50);"> Buy Grandma (50)</button>
-          </div>
-          </div>
-          </div>
-          </div>
+    </div>
+    <div class='col-6'>
+          <h2 id="numTop">HotDogs</h2>
+          <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="300px" width="300px">
 
-      <div class="container">
-        <div class="row">
-
-        </div>
       </div>
-
-    </div>
-
-    </div>
-
-    <h2 id="count"></h2>
-
-    {% endblock %}
-
-    {% block content %}
-
-    <p hidden id="words">{{text}}</p>
-    <script>getWords();</script>
-    <div id="word-section" class="container">
-      <div class="waiting">🌭</div>
-    </div>
-
-    <div id="type-section" class="container">
-      <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)">
-      <div id="timer" class="type-btn"><span>1:00</span></div>
-      <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
-        <span id="restart-symbol">↻</span>
-      </button>
-    </div>
-
-    <form action="/index" , methods=["GET"]>
-      <input type="submit" value="Quotes" name="q">
-      <input type="submit" value="Meat Lorem Ipsum" name="m">
-      <input type="submit" value="Advice" name="a"> </form>
-
-    </div>
-    </div>
-
-
-    {% endblock %}
-
-    {% block inventory %}
-    <!--Inventory-->
-    <div class="container">
-      <div class="row">
-        <div id="inventory" class="col-sm">
-          <h4>Inventory</h4>
-        </div>
+      <div class='col'>
         <div id="shop" class="col-sm">
-          <p style="visibility: hidden;" id="allowed"> <b>You don't have enough hotdogs!</b> </p>
-          <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
-          <button id="nathans" onclick="getNumShops(10);"> Buy Shop </button>
-          <h4>Grandma Olga: 3 hot dog every second</h4>
-          <button id="grandma" onclick="getNumGrandmas(20);"> Buy Grandma </button>
+          <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
+          <h4>Nathan's Shops: </br>1 Hot Dog/s</h4>
+          <button id="nathans" onclick="getNumShops(30);"> Buy Shop (30) </button>
+          <h4>Grandma Olga:</br> 3 Hot Dog/s</h4>
+          <button id="grandma" onclick="getNumGrandmas(50);"> Buy Grandma (50)</button>
         </div>
-
       </div>
     </div>
+    <div class = 'row'>
+      <p hidden id="words">{{text}}</p>
+      <script>getWords();</script>
+      <div id="word-section" class="container">
+        <div class="waiting">🌭</div>
+      </div>
+
+
+      <div id="type-section" class="container">
+        <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)">
+        <div id="timer" class="type-btn"><span>1:00</span></div>
+        <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
+          <span id="restart-symbol">↻</span>
+        </button>
+        <br>
+      </div>
+      </div>
+      <br>
+      <div class = 'row'>
+        <div class = 'col'>
+          <p> Pick your text:    </p>
+      <form action="/index" method="GET">
+
+                  <input type="submit" class = 'btn btn-success' value="Quotes" name="q">
+
+                  <input type="submit"class = 'btn btn-success' value="Meat Lorem Ipsum" name="m">
+
+                  <input type="submit" class = 'btn btn-success' value="Advice" name="a">   </form>
+
+
+
+
+        </div>
+
+          </div>
+  </div>
+
+
+
+<h2 id="count"></h2>
+
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}
+
+{% block inventory %}
+<!--Inventory-->
 <!-- End inventory -->
 {% endblock %}

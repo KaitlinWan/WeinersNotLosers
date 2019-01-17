@@ -8,7 +8,8 @@
 
 #word-section {
   border: 1px solid #999;
-  background-color: #fff; }
+  background-color: #fff;
+}
 
 /************************************************/
 * {
@@ -18,7 +19,8 @@
 
 body {
   margin: 0 auto;
-  background-color: #42e8f4;
+  /*background-color: #42e8f4;*/
+  background-color: #AF1B3F;
   font-family: sans-serif; }
 
 
@@ -54,7 +56,7 @@ header {
     vertical-align: middle; }
 
 #typebox {
-  width: 64%;
+  width: 65%;
   color: #000;
   padding: 0.5em;
   box-shadow: -1px -1px 5px #383838; }
@@ -64,12 +66,35 @@ header {
 #inventory {
   border-style: dashed;
   border-radius: 8px;
-  margin: 15px; }
+  margin: 15px;
+  background-color: #ECE4DA;
+}
+
+#navbtns{
+  background:none!important;
+  color:inherit;
+     border:none;
+     font: inherit;
+     cursor: pointer;
+}
+
+/* navbar */
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
 
 #shop {
    border-style: dashed;
    border-radius: 8px;
-   margin: 15px; }
+   margin: 15px;
+ background-color: #ECE4DA; }
+
+#leaderboard {
+  background-color: #ECE4DA;
+  border-style: dashed;
+  border-radius: 8px;
+  margin: 15px; }
 
 #timer {
   width: 4em;
@@ -109,6 +134,11 @@ header {
   font-family:trial;
   font-size: 60px;
   color: black;
+}
+
+#selections, .button{
+
+
 }
 
 
