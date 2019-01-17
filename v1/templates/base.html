@@ -1,98 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    {% block head %}
-    {% endblock %}
-    <style type="text/css">
-      body {
-            background: radial-gradient(circle, #ebdd85, #5ec4a6);
-            background-attachment:fixed;
-            height:100%;
-      }
-    </style>
-    <title> {% block title %} {% endblock %} | HotDogClicker </title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <body onload="addWords()">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  {% block head %}
+  {% endblock %}
+  <style type="text/css">
+    body {
+      background: radial-gradient(circle, #ebdd85, #5ec4a6);
+      background-attachment: fixed;
+      height: 100%;
+    }
+  </style>
+  <title> {% block title %} {% endblock %} | HotDogClicker </title>
+</head>
+
+<body onload="addWords()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     {% if loggedin %}
-  <a class="navbar-brand" href="#">{{username}}</a>
+    <a class="navbar-brand" href="#">{{username}}</a>
     {% else %}
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Hot Dog Typer</a>
     {% endif %}
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/index">Play Game</a>
         </li>
-      {% if not loggedin %}
+        {% if not loggedin %}
 
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-      {% else %}
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
         </li>
         {% endif %}
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-    <center>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-   {% if messages %}
-     {% for message in messages %}
-     <div class="visible" style="width: 80%; position: fixed; margin-top: 1%; z-index: 1030; opacity:0.95;">
-       <div class="alert alert-{{message[0]}} alert-dismissible fade show" role="alert">{{ message[1] }}
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-   </div>
-   {% endfor %}
-   {% endif %}
-   {% endwith %}
+      </ul>
+    </div>
+  </nav>
+  <center>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="visible" style="width: 80%; position: fixed; margin-top: 1%; z-index: 1030; opacity:0.95;">
+      <div class="alert alert-{{message[0]}} alert-dismissible fade show" role="alert">{{ message[1] }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 
     {% block page_header %}
     {% endblock %}
 
-    </center>
-    <!-- this is for stuff before the giant hotdog in the middle -->
-    <div> <!--Outer div-->
+  </center>
+  <!-- this is for stuff before the giant hotdog in the middle -->
+  <div>
+    <!--Outer div-->
 
-      <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
+    <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
 
     {% block content %}
     {% endblock %}
 
-    </div> <!-- Outer div -->
+  </div> <!-- Outer div -->
 
-    {% block inventory %}
-    {% endblock %}
-    <br>
-    <br>
-    <footer style="text-align:center;">
-      &copy;<img src="https://www.clipartmax.com/png/small/90-903435_animasi-sosis-png.png" height="40" width="20"> WeinersNotLosers 2019
-    </footer>
-  </body>
+  {% block inventory %}
+  {% endblock %}
+  <br>
+  <br>
+  <footer style="text-align:center;">
+    &copy;<img src="" height="40" width="20"> WeinersNotLosers 2019
+  </footer>
+</body>
 
-  <script>
+<script>
   $
-</html>
+    <
+    /html>
