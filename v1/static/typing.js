@@ -143,15 +143,45 @@ var getNumGrandmas = function(cost) {
   }
 };
 
+var doWork = function() {
+    // ajax the JSON to the server
+    // console.log("heyyyy");
+    var getHotdogs = document.getElementById("numhotdogs");
+    var numHotdogs = getHotdogs.textContent;
+
+    var getGrandmas = document.getElementById("numgrandmas");
+    var numGrandmas = getGrandmas.textContent;
+
+    var getShops = document.getElementById("numshops");
+    var numShops = getShops.textContent;
+
+    var getMultiplier = document.getElementById("multiplier");
+    var theMultiplier  = getMultiplier.textContent;
+
+    $.ajax({
+        url : "/update",
+        type : "POST",
+        contentType: 'application/json',
+        data: JSON.stringify({
+            hotdogs: numHotdogs,
+            grandmas: numGrandmas,
+            shops: numShops,
+        }),
+        crossdomain: true,
+    });
+    // console.log("Hotdogs: " + numHotdogs);
+    // event.preventDefault();
+};
+
 //Displays the inventory on the main page
 var display = function() {
   let target = $("#inventory")[0];
   target.innerHTML = "<h4>Inventory</h4>";
-  console.log(inventory.hotdogs);
-  target.innerHTML += `<p> Number of hotdogs: ${Math.floor(inventory.hotdogs)}</p>`;
-  target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
-  target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
-  target.innerHTML += `<p> Grandmas: ${inventory.grandmas} </p>`;
+  // console.log(inventory.hotdogs);
+  target.innerHTML += `<p> Number of hotdogs: <p id="numhotdogs">${Math.floor(inventory.hotdogs)}</p></p>`;
+  target.innerHTML += `<p> Multiplier: <p id="multiplier">${inventory.multiplier}</p></p>`;
+  target.innerHTML += `<p> Shops: <p id="numshops">${inventory.shops}</p></p>`;
+  target.innerHTML += `<p> Grandmas: <p id="numgrandmas">${inventory.grandmas}</p></p>`;
   let head = $("#numTop")[0];
   head.innerHTML = `<p>You have ${Math.floor(inventory.hotdogs)} hotdogs!</p>`;
 }
@@ -190,7 +220,7 @@ var submitWord = function(word) {
     wordData.correct += 1;
     wordData.streak += 1;
     getNumDogs();
-    console.log(inventory.hotdogs)
+    // console.log(inventory.hotdogs)
     //getMultiplier();
   } else {
     current.classList.remove("current-word", "incorrect-word-bg");
@@ -203,6 +233,7 @@ var submitWord = function(word) {
   //getNumDogs();
   getMultiplier();
   display();
+  doWork();
   // update wordData
   wordData.total = wordData.correct + wordData.incorrect;
 
@@ -297,7 +328,7 @@ var calculateWPM = function(data) {
 }
 
 var typingTest = function(e) {
-  console.log("in typing test");
+  // console.log("in typing test");
   // Char:        Key Code:
   // <space>      32
   // <backspace>  8
