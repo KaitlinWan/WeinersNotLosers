@@ -47,7 +47,6 @@
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
-        </li>
         {% endif %}
       </ul>
     </div>
@@ -75,7 +74,7 @@
   <div>
     <!--Outer div-->
 
-    <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="200px" width="200px">
+    <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="300px" width="300px">
 
     {% block content %}
     {% endblock %}
@@ -87,7 +86,7 @@
   <br>
   <br>
   <footer style="text-align:center;">
-    &copy;<img src="" height="40" width="20"> WeinersNotLosers 2019
+    &copy;WeinersNotLosers 2019 <img src="{{url_for('static', filename='hotdoglogo.png')}}" height="40" width="20">
   </footer>
 </body>
 

@@ -86,7 +86,22 @@ header {
   #restart:active {
     box-shadow: 1px 1px 4px #467F21 inset;}
 
+    @font-face{
+    font-family: trial;
+    src: url('hotdog.ttf');
+    font-weight: bold;}
 
+#numTop{
+  font-family:trial;
+  font-size: 75px;
+  color: black;
+}
+
+#count{
+  font-family:trial;
+  font-size: 60px;
+  color: black;
+}
 
 
 

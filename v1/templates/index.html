@@ -15,14 +15,8 @@
 
 {% block page_header %}
 
-<h2 id="numTop">Number of HotDogs:</h2>
-
-HotDogs:
-<form action="/index", methods=["GET"]>
-  <input type="submit" value="Quotes" name="q">
-  <input type="submit" value="Meat Lorem Ipsum" name="m">
-  <input type="submit" value="Advice" name="a">
-</form>
+<h2 id="numTop">HotDogs</h2>
+<h2 id="count"></h2>
 
 {% endblock %}
 
@@ -42,6 +36,14 @@ HotDogs:
       </button>
     </div>
 
+<center>
+    <form action="/index", methods=["GET"]>
+      <input type="submit" value="Quotes" name="q">
+      <input type="submit" value="Meat Lorem Ipsum" name="m">
+      <input type="submit" value="Advice" name="a">
+    </form>
+
+</center>
 
 {% endblock %}
 
