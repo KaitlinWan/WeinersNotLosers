@@ -62,11 +62,13 @@ header {
     outline: none; }
 
 #inventory {
-  border-style: solid;
+  border-style: dashed;
+  border-radius: 8px;
   margin: 15px; }
 
 #shop {
-   border-style: solid;
+   border-style: dashed;
+   border-radius: 8px;
    margin: 15px; }
 
 #timer {
