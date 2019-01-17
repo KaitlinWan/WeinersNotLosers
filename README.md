@@ -23,4 +23,5 @@ Based on the popular game Cookie Clicker, in this project, we aim to combine the
     * Start Hot Dog typer
 7. Open up your browser and type [127.0.0.1:5000](http://127.0.0.1:5000/)
     * Load Hot Dog Typer in browser and enjoy
+8. Select one of the three butons for choice of words and start typing!
 
