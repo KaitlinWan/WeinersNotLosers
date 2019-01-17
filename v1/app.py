@@ -3,8 +3,9 @@ import sqlite3
 import urllib
 import ssl
 import time
+import sys
 
-from flask import Flask, render_template, request, session, redirect, url_for, flash
+from flask import Flask, render_template, request, session, redirect, url_for, flash, Response
 from urllib.request import urlopen
 
 from util import authenticate
@@ -40,7 +41,7 @@ def getAdvice():
 def duplicate(x):
     text = ""
     while (len(text) < 500):
-        text += x + " " 
+        text += x + " "
     return text
 
 @app.route('/')
@@ -111,6 +112,18 @@ def logout():
     else:
         flash("You are not logged in!", "danger")
     return redirect(url_for('home'))
+
+@app.route('/update', methods=["GET", "POST"])
+def update():
+    if request.method == "POST":
+        updateHotdogs = request.json['hotdogs']
+        updateGrandmas = request.json['grandmas']
+        updateShops = request.json['shops']
+        if authenticate.is_loggedin(session):
+            username = session['loggedin']
+            
+        return "Grandmas: " + updateGrandmas
+
 
 if __name__ == '__main__':
     app.debug = True
