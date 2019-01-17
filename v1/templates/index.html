@@ -1,26 +1,58 @@
 {% extends 'base.html' %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="{{ url_for('static', filename='typing.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='typing.js') }}"></script>
 
 {% endblock %}
 
 {% block title %}
-  Play
+Play
 {% endblock %}
 
 {% block page_header %}
+<div class='container'>
+    <div class='row'>
+            <div class='col'>
+              <div id="inventory" class="col-sm">
+                <h4>Inventory</h4>
+              </div>
+      </div>
+      <div class='col-6'>
+            <h2 id="numTop">HotDogs</h2>
+            <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="300px" width="300px">
 
-<h2 id="numTop">HotDogs</h2>
-<h2 id="count"></h2>
+        </div>
+        <div class='col'>
+          <div id="shop" class="col-sm">
+            <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
+            <h4>Nathan's Shops: </br>1 HotDog/s</h4>
+            <button id="nathans" onclick="getNumShops(10);toggle()"> Buy Shop </button>
+            <h4>Grandma Olga:</br> 3 HotDog/s</h4>
+            <button id="grandma" onclick="getNumGrandmas(20);toggle()"> Buy Grandma </button>
+          </div>
+          </div>
+          </div>
+          </div>
 
-{% endblock %}
+      <div class="container">
+        <div class="row">
 
-{% block content %}
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+
+    <h2 id="count"></h2>
+
+    {% endblock %}
+
+    {% block content %}
 
     <p hidden id="words">{{text}}</p>
     <script>getWords();</script>
@@ -36,34 +68,33 @@
       </button>
     </div>
 
-<center>
-    <form action="/index", methods=["GET"]>
+    <form action="/index" , methods=["GET"]>
       <input type="submit" value="Quotes" name="q">
       <input type="submit" value="Meat Lorem Ipsum" name="m">
-      <input type="submit" value="Advice" name="a">
-    </form>
+      <input type="submit" value="Advice" name="a"> </form>
 
-</center>
-
-{% endblock %}
-
-{% block inventory %}
-<!--Inventory-->
-
-<div class="container">
-  <div class="row">
-    <div id="inventory" class="col-sm">
-      <h4>Inventory</h4>
     </div>
-    <div id="shop" class="col-sm">
-      <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
-      <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
-      <button id="nathans" onclick="getNumShops(10);toggle()"> Buy Shop </button>
-      <h4>Grandma Olga: 3 hot dog every second</h4>
-      <button id="grandma" onclick="getNumGrandmas(20);toggle()"> Buy Grandma </button>
     </div>
 
-  </div>
-</div>
+
+    {% endblock %}
+
+    {% block inventory %}
+    <!--Inventory-->
+    <div class="container">
+      <div class="row">
+        <div id="inventory" class="col-sm">
+          <h4>Inventory</h4>
+        </div>
+        <div id="shop" class="col-sm">
+          <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
+          <h4>Nathan's Hot Dogs: 1 hot dog every second</h4>
+          <button id="nathans" onclick="getNumShops(10);toggle()"> Buy Shop </button>
+          <h4>Grandma Olga: 3 hot dog every second</h4>
+          <button id="grandma" onclick="getNumGrandmas(20);toggle()"> Buy Grandma </button>
+        </div>
+
+      </div>
+    </div>
 <!-- End inventory -->
 {% endblock %}

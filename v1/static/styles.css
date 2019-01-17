@@ -93,11 +93,17 @@ header {
 
 #numTop{
   font-family:trial;
-  font-size: 75px;
+  font-size: 50px;
   color: black;
 }
 
 #count{
+  font-family:trial;
+  font-size: 60px;
+  color: black;
+}
+
+#regii{
   font-family:trial;
   font-size: 60px;
   color: black;

@@ -1,3 +1,7 @@
+//Animate the element
+//Waits for previous animation to end before next animation
+//Credit https://github.com/anschwa/ for his javascript function
+//for type testing
 $.fn.extend({
   animateCss: function(animationName, callback) {
     var animationEnd = (function(el) {
@@ -27,9 +31,11 @@ $.fn.extend({
   },
 });
 
+//Gets the words from the hidden paragraph in index.html
+//Makes a list from the words and adds the words to the typing section
+
 let wordList="";
 var getWords = function(){
-    //alert('heyo');
     var text = document.getElementById('words').innerHTML;
     wordList = text.split(" ");
     console.log(wordList);
@@ -123,6 +129,7 @@ var getWords = function(){
   }
 };
 
+//Updates number of grandmas
 var getNumGrandmas = function(cost){
 
   if(inventory.hotdogs >= cost){
@@ -145,8 +152,8 @@ var getNumGrandmas = function(cost){
     target.innerHTML += `<p> Multiplier: ${inventory.multiplier} </p>`;
     target.innerHTML += `<p> Shops: ${inventory.shops} </p>`;
     target.innerHTML += `<p> Grandmas: ${inventory.grandmas} </p>`;
-    let head = $("#count")[0];
-    head.innerHTML = `<p>${Math.floor(inventory.hotdogs)}</p>`;
+    let head = $("#numTop")[0];
+    head.innerHTML = `<p>You have ${Math.floor(inventory.hotdogs)} hotdogs!</p>`;
   }
   /******************************************
   After hitting <space> if value == current-word, mark as correct-word
@@ -155,6 +162,7 @@ var getNumGrandmas = function(cost){
   else, mark as current-word
   *******************************************/
 
+  //Checks for word correctness
   var checkWord = function(word) {
     let wlen = word.value.length;
     // how much we have of the current word.
@@ -209,10 +217,10 @@ var getNumGrandmas = function(cost){
     let previous = current.previousSibling; // last word of first line
     let children = $(".correct-word-c, .incorrect-word-c").length;
 
-    // <span>'s on the next line have a greater offsetTop value
-    // than those on the top line.
-    // Remove words until the first word on the second line
-    // is the fistChild of word-section.
+    /* <span>'s on the next line have a greater offsetTop value
+     than those on the top line.
+     Remove words until the first word on the second line
+     is the fistChild of word-section.*/
     if (current.offsetTop > previous.offsetTop) {
       for (let i = 0; i < children; i++) {
         wordSection.removeChild(wordSection.firstChild);
@@ -244,6 +252,7 @@ var getNumGrandmas = function(cost){
     return true;
   }
 
+  //Calculate the words per minute
   var calculateWPM = function(data) {
     let {seconds, correct, incorrect, total, typed} = data;
     let min = (seconds / 60);
@@ -308,7 +317,7 @@ var getNumGrandmas = function(cost){
       }
     }
   }
-
+  //Reloads page
   var restartTest = function() {
     $("#typebox")[0].value = "";
     location.reload();
