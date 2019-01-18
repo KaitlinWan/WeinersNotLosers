@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from urllib.request import urlopen
 
 from util import authenticate
-'''import funcDB'''
+import db_func
 
 app = Flask(__name__)
 app.secret_key = "wereallweinerssometimes"
@@ -56,19 +56,73 @@ def home():
     if authenticate.is_loggedin(session):
         is_loggedin = True
         username = session['loggedin']
+        data = db_func.getData(username)[0]
+        hd = data[0]
+        gm = data[1]
+        sp = data[2]
     else:
         username = ""
         is_loggedin = False
+        data = []
+        hd = 0
+        gm = 0
+        sp = 0
+    print(data)
     if request.args.get('q') == 'Quotes':
         text = duplicate(getQuote())
-        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
+        if authenticate.is_loggedin(session):
+            is_loggedin = True
+            username = session['loggedin']
+            data = db_func.getData(username)[0]
+            hd = data[0]
+            gm = data[1]
+            sp = data[2]
+        else:
+            username = ""
+            is_loggedin = False
+            data = []
+            hd = 0
+            gm = 0
+            sp = 0
+        print(data)
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
     if request.args.get('m') == 'Meat Lorem Ipsum':
         text = duplicate(getBacon())
-        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
+        if authenticate.is_loggedin(session):
+            is_loggedin = True
+            username = session['loggedin']
+            data = db_func.getData(username)[0]
+            hd = data[0]
+            gm = data[1]
+            sp = data[2]
+        else:
+            username = ""
+            is_loggedin = False
+            data = []
+            hd = 0
+            gm = 0
+            sp = 0
+        print(data)
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
     if request.args.get('a') == 'Advice':
         text = duplicate(getAdvice())
-        return render_template('index.html', text=text, loggedin=is_loggedin, username=username)
-    return render_template("index.html", loggedin=is_loggedin, username=username)
+        if authenticate.is_loggedin(session):
+            is_loggedin = True
+            username = session['loggedin']
+            data = db_func.getData(username)[0]
+            hd = data[0]
+            gm = data[1]
+            sp = data[2]
+        else:
+            username = ""
+            is_loggedin = False
+            data = []
+            hd = 0
+            gm = 0
+            sp = 0
+        return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
+    print(data)
+    return render_template("index.html", loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
@@ -121,8 +175,10 @@ def update():
         updateShops = request.json['shops']
         if authenticate.is_loggedin(session):
             username = session['loggedin']
-            
-        return "Grandmas: " + updateGrandmas
+            db_func.updateInfo(username, updateHotdogs, updateGrandmas, updateShops)
+            # print("Hotdogs: " + str(db_func.getData(username, "Hotdogs")[0][0]))
+            # YESSS IMA GOD
+    return "woop dis works"
 
 
 if __name__ == '__main__':

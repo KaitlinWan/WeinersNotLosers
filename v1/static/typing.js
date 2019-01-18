@@ -38,7 +38,7 @@ let wordList = "";
 var getWords = function() {
   var text = document.getElementById('words').innerHTML;
   wordList = text.split(" ");
-  console.log(wordList);
+  // console.log(wordList);
   //alert(wordList);
   addWords();
 };
@@ -47,14 +47,14 @@ var getWords = function() {
 var addWords = function(args) {
   // clear existing word-section
   let wordSection = $("#word-section")[0];
-  console.log(wordSection);
+  // console.log(wordSection);
   wordSection.innerHTML = "";
   $("#typebox")[0].value = "";
 
   for (let i = 0; i < wordList.length; i++) {
     let words = wordList;
-    console.log("in add words");
-    console.log(words);
+    // console.log("in add words");
+    // console.log(words);
     let wordSpan = `<span>${words[i]}</span>`;
     wordSection.innerHTML += wordSpan;
   }
@@ -86,19 +86,30 @@ let wordData = {
   typed: 0
 };
 
+
 //Inventory of the user
+
+
+
+var isloggedin = document.getElementById("loggedinmeta");
+var hd = document.getElementById("hdmeta").getAttribute('name');
+var gm = document.getElementById("gmmeta").getAttribute('name');
+var sp = document.getElementById("spmeta").getAttribute('name');
+
 let inventory = {
-  hotdogs: 0,
+  hotdogs: parseInt(hd),
   multiplier: 1,
-  shops: 0,
-  grandmas: 0
+  shops: parseInt(sp),
+  grandmas: parseInt(gm)
 };
+
+console.log(hd);
 
 //Updates the number of hot dogs in inventory
 var getNumDogs = function() {
 
   if (wordData.correct == 0) {
-    inventory.hotdogs = 0
+    inventory.hotdogs = 0;
   } else {
     inventory.hotdogs += (inventory.multiplier);
   }
@@ -169,6 +180,8 @@ var doWork = function() {
         }),
         crossdomain: true,
     });
+    console.log(numGrandmas);
+
     // console.log("Hotdogs: " + numHotdogs);
     // event.preventDefault();
 };

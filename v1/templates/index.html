@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<meta id="datameta" name="{{data}}"></meta>
+<meta id="hdmeta" name="{{hd}}"></meta>
+<meta id="gmmeta" name="{{gm}}"></meta>
+<meta id="spmeta" name="{{sp}}"></meta>
+
+<meta id="loggedinmeta" data-name="{{loggedin}}"></meta>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

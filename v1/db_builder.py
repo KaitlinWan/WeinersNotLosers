@@ -23,7 +23,7 @@ def closeDB():
 	db.commit() #save changes
 	db.close()  #close database
 
-profilesHeader = {"UserID":"INTEGER PRIMARY KEY", "Username":"TEXT UNIQUE", "Password":"TEXT", "Hotdogs" : "INTEGER", "GamesComplete" : "INTEGER", "KeystrokesCorrect" : "INTEGER", "KeystokesIncorrect" : "INTEGER", "Accuracy" : "DOUBLE", "Multiplier" : "DOUBLE", "Guild" : "TEXT", "BoughtItems" :"TEXT"}
+profilesHeader = {"UserID":"INTEGER PRIMARY KEY", "Username":"TEXT UNIQUE", "Password":"TEXT", "Hotdogs" : "INTEGER", "GamesComplete" : "INTEGER", "KeystrokesCorrect" : "INTEGER", "KeystokesIncorrect" : "INTEGER", "Accuracy" : "DOUBLE", "Multiplier" : "DOUBLE", "Guild" : "TEXT", "BoughtItems" :"TEXT", "Grandmas": "INTEGER", "Shops" : "INTEGER" }
 createTable("profiles", profilesHeader)
 
 guildsHeader = {"GuildID":"INTEGER PRIMARY KEY", "Name":"TEXT", "Leader":"TEXT", "Hotgods":"INTEGER", "Members": "TEXT", "OverallAccuracy":"DOUBLE", "BoughtItems":"TEXT"}
