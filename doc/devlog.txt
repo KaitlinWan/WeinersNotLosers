@@ -7,11 +7,11 @@ pd <6>
 
 ---------------------
 <Project Title/Description>
-Based on the popular game Cookie Clicker, in this project, we aim to 
-combine the incentives of games with the practical benefits of learning 
-to type (quickly and accurately). This type of game is coined an 
-"incrementer" game, as proclaimed by Orteil. The point of the game is to 
-create hotdogs by clicking on a giant hotdog, then buy more upgrades to 
+Based on the popular game Cookie Clicker, in this project, we aim to
+combine the incentives of games with the practical benefits of learning
+to type (quickly and accurately). This type of game is coined an
+"incrementer" game, as proclaimed by Orteil. The point of the game is to
+create hotdogs by clicking on a giant hotdog, then buy more upgrades to
 increase your hotdog-tivity.
 ---------------------
 
@@ -25,9 +25,19 @@ ______   ______   __   __   __       ______   _______
 ==============================================================
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+joshuaW -- 2019-01-17 13:30:00
+--------------------------------------------------------------
+- finished the following full-stack implementation:
+    - continuously sending updated hotdog and shop data to flask via Ajax
+    - updating the user's (if logged in) entries in database with said updates
+    - querying and sending user information to javascript using JQuery
+    - populating html with said javascript values
+- refined default values to reflect new dynamic update implementation
+==============================================================
+
 kaitlinW, joshuaW -- 2019-01-17 18:20
 --------------------------------------------------------------
-- Database implementation!
+- Database implementation complete!
 - PDF uploads
 - Fixed Layout of pages
 - Robustified Code
@@ -51,20 +61,30 @@ kaitlinW -- 2019-01-15 12:07
 Things to do:
  - Login/Registration [Josh]
  - Changing the typing words [Kyle+Daniel]
- - Saving the Game [Josh+Daniel]
+ - Saving the Game [Josh]
  - More shops etc [Kaitlin]
 ==============================================================
 
-
 danielG -- 2019-01-14 19:10
 --------------------------------------------------------------
-- Added number of hot dogs to the top of index page 
+- Added number of hot dogs to the top of index page
 ==============================================================
 
+joshuaW -- 2019-01-14 17:00
+--------------------------------------------------------------
+- updated database to reflect new grandmas and shops
+- Began work on writing ajax functions to send hotdog information over
+==============================================================
 
 danielG -- 2019-01-14 12:00
 --------------------------------------------------------------
 - added ability to buy grandmas and shops
+==============================================================
+
+joshuaW -- 2019-01-13 23:00
+--------------------------------------------------------------
+- worked on user-specific python scripts to query data
+- worked on conditionals to tailor gameplay for logged-in vs. not-logged-in users
 ==============================================================
 
 kyleT -- 2019-01-12 23:13
@@ -101,7 +121,7 @@ kyleT -- 2019-01-10 12:21
 ==============================================================
 
 
-kaitlinW, joshW -- 2019-01-09 12:20
+kaitlinW, joshuaW -- 2019-01-09 12:20
 --------------------------------------------------------------
 - resolved requirements.txt
 ==============================================================
@@ -114,7 +134,7 @@ kaitlinW -- 2019-01-10 07:30
 ==============================================================
 
 
-kaitlinW, joshW, danielG, kyleT -- 2019-01-09 12:30 
+kaitlinW, joshuaW, danielG, kyleT -- 2019-01-09 12:30
 --------------------------------------------------------------
 - kyle: made base html
 - daniel: created animations for hotdog
@@ -172,7 +192,7 @@ all -- 2019-01-07 12:00
 
 all (emphasis on danielG)-- 2019-01-04 12:00
 --------------------------------------------------------------
-- ideation initiation! 
+- ideation initiation!
 - "Hot Dog Typer"
 ==============================================================
 
@@ -183,4 +203,3 @@ all -- 2019-01-03 12:00
 - repo Made
 - hold on for greatness!
 ==============================================================
-

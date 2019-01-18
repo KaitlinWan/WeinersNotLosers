@@ -67,7 +67,7 @@ def home():
         hd = 0
         gm = 0
         sp = 0
-    print(data)
+    # print(data)
     if request.args.get('q') == 'Quotes':
         text = duplicate(getQuote())
         if authenticate.is_loggedin(session):
@@ -84,7 +84,7 @@ def home():
             hd = 0
             gm = 0
             sp = 0
-        print(data)
+        # print(data)
         return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
     if request.args.get('m') == 'Meat Lorem Ipsum':
         text = duplicate(getBacon())
@@ -102,7 +102,7 @@ def home():
             hd = 0
             gm = 0
             sp = 0
-        print(data)
+        # print(data)
         return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
     if request.args.get('a') == 'Advice':
         text = duplicate(getAdvice())
@@ -121,7 +121,7 @@ def home():
             gm = 0
             sp = 0
         return render_template('index.html', text=text, loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
-    print(data)
+    # print(data)
     return render_template("index.html", loggedin=is_loggedin, username=username, data=data, hd=hd, gm=gm, sp=sp)
 
 @app.route('/register', methods=["GET", "POST"])
@@ -172,6 +172,7 @@ def update():
     if request.method == "POST":
         updateHotdogs = request.json['hotdogs']
         updateGrandmas = request.json['grandmas']
+        # print(updateGrandmas)
         updateShops = request.json['shops']
         if authenticate.is_loggedin(session):
             username = session['loggedin']
