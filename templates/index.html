@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta id="datameta" name="{{data}}"></meta>
+<meta id="hdmeta" name="{{hd}}"></meta>
+<meta id="gmmeta" name="{{gm}}"></meta>
+<meta id="spmeta" name="{{sp}}"></meta>
+
+<meta id="loggedinmeta" data-name="{{loggedin}}"></meta>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='typing.js') }}"></script>
+
+{% endblock %}
+
+{% block title %}
+Play
+{% endblock %}
+
+{% block page_header %}
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <div id="inventory">
+        <h4>Inventory</h4>
+      </div>
+      <br>
+    </div>
+    <div class='col-6'>
+          <h2 id="numTop">HotDogs</h2>
+          <img id="hotdog" class="center-block" src="https://images.vexels.com/media/users/3/149877/isolated/preview/6270774870e82d0bc815276ee4cd551e-hotdog-character-cartoon-by-vexels.png" alt="HotDog" height="300px" width="300px">
+
+      </div>
+      <div class='col'>
+        <div id="shop" class="col-sm">
+          <p style="visibility: hidden;" id="allowed"> You don't have enough hotdogs! </p>
+          <h4>Nathan's Shops: </br>1 Hot Dog/s</h4>
+          <button id="nathans" onclick="getNumShops(30);"> Buy Shop (30) </button>
+          <h4>Grandma Olga:</br> 3 Hot Dog/s</h4>
+          <button id="grandma" onclick="getNumGrandmas(50);"> Buy Grandma (50)</button>
+        </div>
+      </div>
+    </div>
+    <div class = 'row'>
+    <div class = 'col'>
+  <form action="/index" method="GET">
+
+              <input type="submit" class = 'btn btn-success' value="Quotes" name="q">
+
+              <input type="submit"class = 'btn btn-success' value="Meat Lorem Ipsum" name="m">
+
+              <input type="submit" class = 'btn btn-success' value="Advice" name="a">   </form>
+
+    <br>
+
+
+    </div>
+
+    </div>
+    <div class = 'row'>
+      <p hidden id="words">{{text}}</p>
+      <script>getWords();</script>
+      <div id="word-section" class="container">
+        <div class="waiting">🌭</div>
+      </div>
+
+
+      <div id="type-section" class="container">
+        <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)">
+        <div id="timer" class="type-btn"><span>1:00</span></div>
+        <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
+          <span id="restart-symbol">↻</span>
+        </button>
+        <br>
+      </div>
+      </div>
+      <br>
+      <div class = 'row'>
+
+          </div>
+  </div>
+
+
+
+<h2 id="count"></h2>
+
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}
+
+{% block inventory %}
+<!--Inventory-->
+<!-- End inventory -->
+{% endblock %}
