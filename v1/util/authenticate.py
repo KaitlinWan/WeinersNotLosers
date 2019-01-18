@@ -20,8 +20,8 @@ def register_user(username, password, repassword):
             return (False, "Username {} already exists.".format(username))
         else:
             pw_hash = generate_password_hash(password)
-            command = "INSERT INTO profiles (username, password) VALUES(?, ?);"
-            c.execute(command, (username, pw_hash))
+            command = "INSERT INTO profiles (username, password, Hotdogs, Grandmas, Shops) VALUES(?, ?, ?, ?, ?);"
+            c.execute(command, (username, pw_hash, 0, 0, 0))
 
         db.commit()
     return (True, "Successfully registered {}".format(username))
